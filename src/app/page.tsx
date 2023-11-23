@@ -1,17 +1,14 @@
 "use client";
+import Container from "@/components/container";
 import { Button } from "@/components/ui/button";
-import { ModeToggle } from "@/components/ui/toggle-mode";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center p-24">
+    <Container className="items-center p-24">
       <header className="w-full">
         <nav>
           <ul className="flex items-center justify-between">
             <li>SHADCN</li>
-            <li>
-              <ModeToggle />
-            </li>
           </ul>
         </nav>
       </header>
@@ -37,6 +34,6 @@ export default function Home() {
           </Button>
         </div>
       </section>
-    </main>
+    </Container>
   );
 }

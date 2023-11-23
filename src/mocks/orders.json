@@ -1,0 +1,20 @@
+[
+    {
+        "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "created_at": "2023-11-23 00:00:00 UTC",
+        "delivered_at":  "2023-11-25 00:00:00 UTC",
+        "name": "ALVARO MANUEL RODRIGUEZ AGUILAR",
+        "document_number": "74778511",
+        "client_type": "TEST",
+        "total_amount": 310.00,
+        "pending_balance": 0.00,
+        "debt_aging": 10,
+        "payment_status": "CANCELADO",
+        "payment_method": "YAPE",
+        "payment_date": "2023-11-25 00:00:00 UTC",
+        "voucher": "ABCDEFG123",
+        "seller": "ALONSO",
+        "delivery": "MANOLO",
+        "observaciones": ""
+    }
+]
