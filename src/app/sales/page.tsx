@@ -1,18 +1,22 @@
 import Container from "@/components/container";
 import { DataTable } from "./data-table";
 import { Order, columns } from "./columns";
-import Orders from "@/mocks/orders.json"
+import Orders from "@/mocks/orders.json";
 
 const Sales = () => {
-    const data: Order[] = Orders
+  const data: Order[] = Orders.map((order) => {
+    return {
+      ...order,
+      created_at: new Date(order.created_at).toLocaleDateString("es-PE"),
+      delivered_at: new Date(order.delivered_at).toLocaleDateString("es-PE"),
+    };
+  });
 
-    return ( 
-        <Container>
-            <div className="overflow-auto">
-                <DataTable columns={columns}  data={data}/>
-            </div>
-        </Container>
-     );
-}
- 
+  return (
+    <Container>
+      <DataTable columns={columns} data={data} />
+    </Container>
+  );
+};
+
 export default Sales;
