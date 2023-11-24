@@ -32,6 +32,7 @@ export type Order = {
   voucher: string;
   seller: string;
   delivery: string;
+  district: string;
   observations: string;
 };
 
@@ -108,7 +109,17 @@ export const columns: ColumnDef<Order>[] = [
   },
   {
     accessorKey: "payment_status",
-    header: () => <div className="text-right">Estado de pago</div>,
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Estado Pago
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
     cell: ({ row }) => {
       return (
         <div
@@ -150,6 +161,19 @@ export const columns: ColumnDef<Order>[] = [
   {
     accessorKey: "delivery",
     header: "Entrega",
+  },
+  {
+    accessorKey: "district",
+    header: () => <div className="text-center">Distrito</div>,
+    cell: ({ row }) => {
+      return (
+        <div
+          className={`text-center`}
+        >
+          {row.getValue("district")}
+        </div>
+      );
+    },
   },
   {
     accessorKey: "observations",

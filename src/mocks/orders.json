@@ -15,6 +15,7 @@
     "voucher": "ABCDEFG123",
     "seller": "ALONSO",
     "delivery": "MANOLO",
+    "district": "JESUS MARIA",
     "observations": ""
   },
   {
@@ -33,6 +34,7 @@
     "voucher": "XYZ123",
     "seller": "CARLOS",
     "delivery": "ANA",
+    "district": "BREÑA",
     "observations": "Entregar en la puerta principal."
   },
   {
@@ -51,6 +53,7 @@
     "voucher": "ABC456",
     "seller": "LUCIA",
     "delivery": "PABLO",
+    "district": "PUEBLO LIBRE",
     "observations": ""
   },
   {
@@ -69,6 +72,7 @@
     "voucher": "DEF789",
     "seller": "MARIO",
     "delivery": "RAQUEL",
+    "district": "LOS OLIVOS",
     "observations": "Llamar antes de la entrega."
   },
   {
@@ -87,6 +91,7 @@
     "voucher": "GHIJKL01",
     "seller": "FERNANDO",
     "delivery": "JAVIER",
+    "district": "ATE",
     "observations": "Dejar en la portería."
   },
   {
@@ -105,6 +110,7 @@
     "voucher": "MNO123",
     "seller": "GABRIELA",
     "delivery": "SANDRA",
+    "district": "JESUS MARIA",
     "observations": ""
   },
   {
@@ -123,6 +129,7 @@
     "voucher": "PQR789",
     "seller": "JORGE",
     "delivery": "GISELA",
+    "district": "JESUS MARIA",
     "observations": "Fragil, manejar con cuidado."
   },
   {
@@ -141,6 +148,7 @@
     "voucher": "PQR789",
     "seller": "JORGE",
     "delivery": "GISELA",
+    "district": "SAN JUAN DE MIRAFLORES",
     "observations": "Fragil, manejar con cuidado."
   },            
   {
@@ -159,6 +167,7 @@
     "voucher": "ABCDEFG123",
     "seller": "ALONSO",
     "delivery": "MANOLO",
+    "district": "JESUS MARIA",
     "observations": ""
   },
   {
@@ -177,6 +186,7 @@
     "voucher": "ABCDEFG123",
     "seller": "ALONSO",
     "delivery": "MANOLO",
+    "district": "JESUS MARIA",
     "observations": ""
   },
   {
@@ -195,6 +205,7 @@
     "voucher": "ABCDEFG123",
     "seller": "ALONSO",
     "delivery": "MANOLO",
+    "district": "JESUS MARIA",
     "observations": ""
   }
 ]
