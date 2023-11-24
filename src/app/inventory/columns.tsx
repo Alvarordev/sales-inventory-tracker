@@ -9,8 +9,6 @@ export type Product = {
     description: string;
     brand: string;
     current_stock: number;
-    entrances: number;
-    exits: number;
     price: number;
 };
 
@@ -43,28 +41,11 @@ export const columns: ColumnDef<Product>[] = [
     header: "Stock Actual",
     cell: ({ row }) => {
       return (
-        <div className={`text-left`}>{row.getValue("current_stock")}</div>
+        <div className={`text-left`}>{row.getValue("current_stock")} uds</div>
       );
     },
   },
-  {
-    accessorKey: "entrances",
-    header: "Entradas",
-    cell: ({ row }) => {
-      return (
-        <div className={`text-left`}>{row.getValue("entrances")}</div>
-      );
-    },
-  },
-  {
-    accessorKey: "exits",
-    header: "Salidas",
-    cell: ({ row }) => {
-      return (
-        <div className={`text-left`}>{row.getValue("exits")}</div>
-      );
-    },
-  },
+  
   {
     accessorKey: "price",
     header: "Precio",

@@ -15,19 +15,20 @@ export type Client = {
   contact_name: string;
   phone_number: string;
   client_type: string;
+  seller: string;
 };
 
 export const columns: ColumnDef<Client>[] = [
   {
     accessorKey: "document_type",
-    header: "Tipo de Documento",
+    header: "Tipo de documento",
     cell: ({ row }) => {
       return <div className={`text-left`}>{row.getValue("document_type")}</div>;
     },
   },
   {
     accessorKey: "document_number",
-    header: "Documento",
+    header: "N° documento",
     cell: ({ row }) => {
       return (
         <div className={`text-left`}>{row.getValue("document_number")}</div>
@@ -52,19 +53,42 @@ export const columns: ColumnDef<Client>[] = [
     },
   },
   {
+    accessorKey: "address",
+    header: "Dirección",
+    cell: ({ row }) => {
+      return <div className={`text-left`}>{row.getValue("address")}</div>;
+    },
+  },
+  {
+    accessorKey: "delivery_address",
+    header: "Distrito entrega",
+    cell: ({ row }) => {
+      return (
+        <div className={`text-left`}>{row.getValue("delivery_address")}</div>
+      );
+    },
+  },
+  {
     accessorKey: "district",
     header: "Distrito",
+    cell: ({ row }) => {
+      return <div className={`text-left`}>{row.getValue("district")}</div>;
+    },
   },
   {
     accessorKey: "contact_name",
-    header: "Nombre contact",
+    header: "Contacto",
   },
   {
     accessorKey: "phone_number",
-    header: "Numero contacto",
+    header: "Teléfono",
   },
   {
     accessorKey: "client_type",
-    header: "Categoria",
+    header: "Tipo de cliente",
+  },
+  {
+    accessorKey: "seller",
+    header: "Vendedor",
   },
 ];

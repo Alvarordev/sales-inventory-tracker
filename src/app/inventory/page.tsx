@@ -1,25 +1,16 @@
 import Container from "@/components/container";
 import { DataTable } from "./data-table";
-import { columns } from "./columns";
+import { columns, Product } from "./columns";
+import supabase from '../../../supabase.js'
 
-const Inventory = () => {
-    const products = [
-        {
-            id: '987654321',
-            created_at: new Date().toLocaleString('es-PE'),
-            product_code: 'AC.LIM',
-            description: 'A/C AROMA LIMON 100 ML',
-            brand: 'SONAX',
-            current_stock: 50,
-            entrances: 48,
-            exits: 59,
-            price: 30.00,
-        }
-    ]
+const Inventory = async () => {
+    let {data, error} = await supabase.from('products').select('*')
+
+    const productData: Product[] = data || [];
 
     return ( 
         <Container>
-            <DataTable columns={columns} data={products} />
+            <DataTable columns={columns} data={productData} />
         </Container>
      );
 }

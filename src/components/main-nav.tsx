@@ -3,6 +3,7 @@
 import { usePanelStore } from "@/store/useStore";
 import {
   Box,
+  FileText,
   LayoutDashboard,
   MapPinned,
   ShoppingBag,
@@ -44,6 +45,12 @@ const MainNav = () => {
       title: "Hojas De Ruta",
       path: "/route-map",
       icon: <MapPinned />,
+      active: `${pathname === "/route-map" ? "bg-muted text-indigo-500" : ""}`,
+    },
+    {
+      title: "Facturación",
+      path: "/billing",
+      icon: <FileText />,
       active: `${pathname === "/route-map" ? "bg-muted text-indigo-500" : ""}`,
     },
   ];

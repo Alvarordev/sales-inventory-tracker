@@ -13,6 +13,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Badge } from "@/components/ui/badge";
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
@@ -122,15 +123,13 @@ export const columns: ColumnDef<Order>[] = [
     },
     cell: ({ row }) => {
       return (
-        <div
-          className={`text-center ${
-            row.getValue("payment_status") === "CANCELADO"
-              ? "text-blue-500"
-              : "text-amber-500"
-          } rounded-md  font-semibold`}
-        >
+        <Badge className={`text-center ${
+          row.getValue("payment_status") === "CANCELADO"
+            ? "bg-blue-500"
+            : "bg-amber-500"
+        } text-white`}>
           {row.getValue("payment_status")}
-        </div>
+        </Badge>
       );
     },
   },
