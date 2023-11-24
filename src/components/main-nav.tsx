@@ -54,7 +54,7 @@ const MainNav = () => {
         <li key={path}>
           <Link
             href={path}
-            className={`${active} flex py-2 gap-2 ${isPanelOpen ? '' : 'justify-center'} hover:text-indigo-500 rounded-md`}
+            className={`${active} flex py-2 gap-2 ${isPanelOpen ? '' : 'justify-center'} px-2 hover:text-indigo-500 rounded-md`}
           >
             {icon}
             <span className={`${isPanelOpen ? '' : 'hidden'}`}>{title}</span>
