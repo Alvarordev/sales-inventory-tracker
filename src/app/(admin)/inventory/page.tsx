@@ -1,7 +1,7 @@
 import Container from "@/components/container";
 import { DataTable } from "./data-table";
 import { columns, Product } from "./columns";
-import supabase from '../../../supabase.js'
+import supabase from "../../../../supabase";
 
 const Inventory = async () => {
     let {data, error} = await supabase.from('products').select('*')

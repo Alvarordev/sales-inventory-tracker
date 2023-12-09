@@ -1,7 +1,7 @@
 import Container from "@/components/container";
 import { DataTable } from "./data-table";
 import { Client, columns } from "./columns";
-import supabase from "../../../supabase";
+import supabase from "../../../../supabase";
 
 const Clientes = async () => {
   let { data, error } = await supabase.from("clients").select("*");
