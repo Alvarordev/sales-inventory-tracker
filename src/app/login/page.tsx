@@ -11,8 +11,12 @@ const Login = async () => {
 
   const { data } = await supabase.auth.getSession();
 
-  if (data.session) {
-    return redirect("/");
+  const { data: user } = await supabase.from("user").select("*").single();
+
+  if (data.session && user?.role === "admin") {
+		return redirect("/admin/sales");
+	} else if (data.session && user?.role !== "admin") {
+    return redirect("/route-sheets")
   }
 
   return <Auth />;

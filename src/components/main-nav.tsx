@@ -19,39 +19,39 @@ const MainNav = () => {
   const routes = [
     {
       title: "Dashboard",
-      path: "/",
+      path: "/admin/dashboard",
       icon: <LayoutDashboard />,
-      active: `${pathname === "/" ? "bg-muted text-indigo-500" : ""}`,
+      active: `${pathname === "/admin/dashboard" ? "bg-muted text-indigo-500" : ""}`,
     },
     {
       title: "Ventas",
-      path: "/sales",
+      path: "/admin/sales",
       icon: <ShoppingBag />,
-      active: `${pathname === "/sales" ? "bg-muted text-indigo-500" : ""}`,
+      active: `${pathname === "/admin/sales" ? "bg-muted text-indigo-500" : ""}`,
     },
     {
       title: "Inventario",
-      path: "/inventory",
+      path: "/admin/inventory",
       icon: <Box />,
-      active: `${pathname === "/inventory" ? "bg-muted text-indigo-500" : ""}`,
+      active: `${pathname === "/admin/inventory" ? "bg-muted text-indigo-500" : ""}`,
     },
     {
       title: "Clientes",
-      path: "/clients",
+      path: "/admin/clients",
       icon: <Users2 />,
-      active: `${pathname === "/clients" ? "bg-muted text-indigo-500" : ""}`,
+      active: `${pathname === "/admin/clients" ? "bg-muted text-indigo-500" : ""}`,
     },
     {
       title: "Hojas De Ruta",
-      path: "/route-map",
+      path: "/admin/route-sheets",
       icon: <MapPinned />,
-      active: `${pathname === "/route-map" ? "bg-muted text-indigo-500" : ""}`,
+      active: `${pathname === "/admin/route-sheets" ? "bg-muted text-indigo-500" : ""}`,
     },
     {
       title: "Facturación",
-      path: "/billing",
+      path: "/admin/billing",
       icon: <FileText />,
-      active: `${pathname === "/route-map" ? "bg-muted text-indigo-500" : ""}`,
+      active: `${pathname === "/billing" ? "bg-muted text-indigo-500" : ""}`,
     },
   ];
 

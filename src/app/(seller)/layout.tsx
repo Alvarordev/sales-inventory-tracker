@@ -7,6 +7,7 @@ export default async function AdminLayout({
 }: {
   children: React.ReactNode;
 }) {
+
   const supabase = createServerComponentSupabaseClient({
     headers,
     cookies,
@@ -15,8 +16,18 @@ export default async function AdminLayout({
   const { data: activeSession } = await supabase.auth.getSession();
 
   if (!activeSession.session) {
-    return redirect('/login');
+    return redirect("/login");
   }
 
-  return <>{children}</>;
+  const { data: user } = await supabase.from("user").select("*").single();
+
+  if (user?.role !== 'user') {
+    return redirect('/')
+  }
+
+  return (
+    <>
+      {children}
+    </>
+  );
 }

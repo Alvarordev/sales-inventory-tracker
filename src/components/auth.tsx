@@ -12,8 +12,8 @@ const Auth = () => {
 
   const handleSignUp = async () => {
     await supabase.auth.signUp({
-      email: 'email-example@gmail.com',
-      password: 'password-example',
+      email: 'emailexample@gmail.com',
+      password: 'passwordexample',
       options: {
         emailRedirectTo: `${location.origin}/auth/callback`,
       },
@@ -23,8 +23,8 @@ const Auth = () => {
 
   const handleSignIn = async () => {
     await supabase.auth.signInWithPassword({
-        email: 'email-example@gmail.com',
-        password: 'password-example'
+        email: 'alvaro@gmail.com',
+        password: 'test123'
     })
     router.refresh()
   }
