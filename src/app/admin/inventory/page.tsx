@@ -4,7 +4,7 @@ import { columns, Product } from "./columns";
 import supabase from "../../../../supabase";
 
 const Inventory = async () => {
-    let {data, error} = await supabase.from('products').select('*')
+    let {data, error} = await supabase.from('products').select('*').order('product_code')
 
     const productData: Product[] = data || [];
 

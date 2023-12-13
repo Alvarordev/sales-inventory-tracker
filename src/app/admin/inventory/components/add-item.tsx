@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -15,8 +16,10 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { addProduct } from "@/services/products";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 import * as z from "zod";
 
 const formSchema = z.object({
@@ -47,8 +50,15 @@ export function AddItemForm() {
     defaultValues
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    const { data, error} = await addProduct(values)
+
+    if(data) {
+      toast.success('Se creo correctamente el producto')
+      form.reset(defaultValues)
+    } else if (error) {
+      toast.error(`Hubo un error al crear el producto, el codigo debe ser único`)
+    }
   }
 
   return (
