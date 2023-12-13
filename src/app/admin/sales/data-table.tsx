@@ -30,7 +30,7 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { ComboboxDemo } from "@/components/ui/combobox";
+import { DistrictList } from "@/components/ui/district-list";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -84,7 +84,7 @@ export function DataTable<TData, TValue>({
             }
             className="max-w-sm"
           />
-          <ComboboxDemo filter={setFilterValue}/>
+          <DistrictList filter={setFilterValue}/>
           <Button>
             Crear Hoja de Ruta
           </Button>

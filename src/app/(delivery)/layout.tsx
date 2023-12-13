@@ -2,7 +2,7 @@ import { createServerComponentSupabaseClient } from "@supabase/auth-helpers-next
 import { headers, cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
-export default async function SellerLayout({
+export default async function DeliveryLayout({
   children,
 }: {
   children: React.ReactNode;

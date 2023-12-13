@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/table";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { AddItemForm } from "./components/add-item";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -50,16 +51,20 @@ export function DataTable<TData, TValue>({
   return (
     <div>
       <div className="flex items-center pb-4">
-        <Input
-          placeholder="Filtrar por descripcion..."
-          value={
-            (table.getColumn("description")?.getFilterValue() as string) ?? ""
-          }
-          onChange={(event) =>
-            table.getColumn("description")?.setFilterValue(event.target.value)
-          }
-          className="max-w-sm"
-        />
+        <div className="w-full">
+          <Input
+            placeholder="Filtrar por descripcion..."
+            value={
+              (table.getColumn("description")?.getFilterValue() as string) ?? ""
+            }
+            onChange={(event) =>
+              table.getColumn("description")?.setFilterValue(event.target.value)
+            }
+            className="max-w-sm"
+          />
+        </div>
+
+        <AddItemForm/>
       </div>
       <div className="rounded-md border">
         <Table>

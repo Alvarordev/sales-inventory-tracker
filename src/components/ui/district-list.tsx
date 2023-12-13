@@ -193,7 +193,7 @@ const districts = [
   },
 ];
 
-export function ComboboxDemo({ filter }: { filter: any }) {
+export function DistrictList({ filter }: { filter: any }) {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState("");
 
