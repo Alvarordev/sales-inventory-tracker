@@ -21,7 +21,7 @@ import {
 } from "@/components/ui/table";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { AddItemForm } from "./components/add-item";
+import { AddItemForm } from "./components/add-product";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
