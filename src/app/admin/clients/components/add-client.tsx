@@ -1,3 +1,5 @@
+'use client'
+
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -29,6 +31,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import * as z from "zod";
+import { addClient } from "@/services/clients";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
   document_type: z.string(),
@@ -59,13 +63,26 @@ const defaultValues: Client = {
 };
 
 export function AddClient() {
+  const router = useRouter()
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues,
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    const { data, error} = await addClient(values)
+
+    if(data) {
+      toast.success('Se creo correctamente el producto')
+      form.reset(defaultValues)
+      router.refresh()
+
+    } else if (error) {
+      toast.error(`Hubo un error al crear el producto, el codigo debe ser único`)
+    }
     console.log(values);
+    console.log(error)
   }
 
   return (
@@ -169,7 +186,7 @@ export function AddClient() {
                     <FormLabel>Direccion</FormLabel>
                     <FormControl>
                       <Input
-                        placeholder="Ej: General Orbegoso 246"
+                        placeholder="Ej: Calle Falsa 246"
                         {...field}
                       />
                     </FormControl>
@@ -186,7 +203,7 @@ export function AddClient() {
                     <FormLabel>Direccion de entrega</FormLabel>
                     <FormControl>
                       <Input
-                        placeholder="Ej: General Orbegoso 246"
+                        placeholder="Ej: Calle Falsa 246"
                         {...field}
                       />
                     </FormControl>

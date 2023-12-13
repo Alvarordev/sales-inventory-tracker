@@ -7,7 +7,7 @@ export interface Product {
 }
 
 export interface Client {
-    document_type: 'RUC' | 'DNI' | '',
+    document_type: 'RUC' | 'DNI' | string,
     document_number: number,
     name: string,
     comercial_name?: string,

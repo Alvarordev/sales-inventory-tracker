@@ -61,7 +61,7 @@ export const columns: ColumnDef<Client>[] = [
   },
   {
     accessorKey: "delivery_address",
-    header: "Distrito entrega",
+    header: "Dirección entrega",
     cell: ({ row }) => {
       return (
         <div className={`text-left`}>{row.getValue("delivery_address")}</div>

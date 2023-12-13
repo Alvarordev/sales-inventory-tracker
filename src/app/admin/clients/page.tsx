@@ -4,7 +4,7 @@ import { Client, columns } from "./columns";
 import supabase from "../../../../supabase";
 
 const Clientes = async () => {
-  let { data, error } = await supabase.from("clients").select("*");
+  let { data, error } = await supabase.from("clients").select("*").order('created_at', {ascending: false});
 
   const productData: Client[] = data || [];
 
