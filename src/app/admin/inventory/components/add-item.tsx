@@ -17,6 +17,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { addProduct } from "@/services/products";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import * as z from "zod";
@@ -44,6 +45,8 @@ const defaultValues = {
 }
 
 export function AddItemForm() {
+  const router = useRouter()
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues
@@ -55,6 +58,7 @@ export function AddItemForm() {
     if(data) {
       toast.success('Se creo correctamente el producto')
       form.reset(defaultValues)
+      router.refresh()
     } else if (error) {
       toast.error(`Hubo un error al crear el producto, el codigo debe ser único`)
     }

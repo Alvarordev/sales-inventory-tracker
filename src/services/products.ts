@@ -9,3 +9,9 @@ export const addProduct = async (product: Product) => {
 
   return { data, error };
 };
+
+export const removeProduct = async (id: string) => {
+  const { error } = await supabase.from("products").delete().eq("id", id);
+
+  return { error };
+};

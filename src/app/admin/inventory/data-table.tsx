@@ -22,6 +22,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { AddItemForm } from "./components/add-item";
+import { OptionsPopover } from "./components/options-popover";
 
 
 interface DataTableProps<TData, TValue> {
@@ -55,20 +56,26 @@ export function DataTable<TData, TValue>({
   return (
     <div>
       <div className="flex items-center pb-4">
-        <div className="w-full">
-          <Input
-            placeholder="Filtrar por descripcion..."
-            value={
-              (table.getColumn("description")?.getFilterValue() as string) ?? ""
-            }
-            onChange={(event) =>
-              table.getColumn("description")?.setFilterValue(event.target.value)
-            }
-            className="max-w-sm"
-          />
+        <div className="w-full flex justify-between">
+          <div className="flex w-full gap-4">
+            <Input
+              placeholder="Filtrar por descripcion..."
+              value={
+                (table.getColumn("description")?.getFilterValue() as string) ?? ""
+              }
+              onChange={(event) =>
+                table.getColumn("description")?.setFilterValue(event.target.value)
+              }
+              className="max-w-sm"
+            />
+
+            <AddItemForm/>  
+          </div>
+          
+          <OptionsPopover row={table.getFilteredSelectedRowModel().rows[0]?.original}/>
+
         </div>
 
-        <AddItemForm/>
       </div>
       <div className="rounded-md border">
         <Table>
