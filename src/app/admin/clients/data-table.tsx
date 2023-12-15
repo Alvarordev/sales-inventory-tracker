@@ -22,6 +22,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { AddClient } from "./components/add-client";
+import { OptionsPopover } from "./components/options-popover";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -35,6 +36,7 @@ export function DataTable<TData, TValue>({
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
   );
+  const [rowSelection, setRowSelection] = React.useState({})
 
   const table = useReactTable({
     data,
@@ -43,26 +45,36 @@ export function DataTable<TData, TValue>({
     onColumnFiltersChange: setColumnFilters,
     getFilteredRowModel: getFilteredRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
+    onRowSelectionChange: setRowSelection,
     state: {
       columnFilters,
+      rowSelection,
     },
   });
 
   return (
     <div>
       <div className="flex items-center pb-4">
-        <div className="flex w-full gap-4">
-          <Input
-            placeholder="Filtrar por nombre..."
-            value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
-            onChange={(event) =>
-              table.getColumn("name")?.setFilterValue(event.target.value)
-            }
-            className="max-w-sm"
-          />
+        <div className="w-full flex justify-between">
+          <div className="flex w-full gap-4">
+            <Input
+              placeholder="Filtrar por descripcion..."
+              value={
+                (table.getColumn("description")?.getFilterValue() as string) ?? ""
+              }
+              onChange={(event) =>
+                table.getColumn("description")?.setFilterValue(event.target.value)
+              }
+              className="max-w-sm"
+            />
 
-          <AddClient/>
+            <AddClient/>  
+          </div>
+          
+          <OptionsPopover row={table.getFilteredSelectedRowModel().rows[0]?.original}/>
+
         </div>
+
       </div>
       <div className="rounded-md border">
         <Table>

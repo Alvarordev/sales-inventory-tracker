@@ -4,7 +4,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { removeProduct } from "@/services/products";
+import { removeClient } from "@/services/clients";
 import { Settings } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
@@ -12,8 +12,8 @@ import { toast } from "sonner";
 export function OptionsPopover({row}: any) {
     const router = useRouter()
 
-    const deleteProduct = async () => {
-        const { error } = await removeProduct(row.id)
+    const deleteClient = async () => {
+        const { error } = await removeClient(row.id)
         
         if (error) {
             toast.error('Hubo un error eliminando este item')
@@ -35,10 +35,10 @@ export function OptionsPopover({row}: any) {
         <div className="grid gap-4">
           <div className="grid gap-2">
             <div className="flex w-full">
-              <Button onClick={deleteProduct} variant={'destructive'} className="w-full h-8">Borrar producto</Button>
+              <Button onClick={deleteClient} variant={'destructive'} className="w-full h-8">Borrar cliente</Button>
             </div>
             <div className="flex w-full">
-              <Button variant={'ghost'} className="w-full h-8">Editar producto</Button>
+              <Button variant={'ghost'} className="w-full h-8">Editar cliente</Button>
             </div>
           </div>
         </div>
